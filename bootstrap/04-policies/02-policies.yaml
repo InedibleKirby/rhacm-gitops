@@ -19,7 +19,7 @@ spec:
     spec:
       project: policies
       source:
-        repoURL: https://github.com/ignaciolago/rhacm-gitops.git
+        repoURL: https://github.com/inediblekirby/rhacm-gitops.git
         targetRevision: main
         path: resources/04-policies
       destination:

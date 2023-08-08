@@ -1,19 +1,12 @@
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
-  name: cluster_name
----
 apiVersion: cluster.open-cluster-management.io/v1
 kind: ManagedCluster
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
-  name: cluster_name
+  name: ocp-thunt-1
   labels:
-    name: cluster_name
+    name: ocp-thunt-1
     cloud: auto-detect
     vendor: auto-detect
     cluster.open-cluster-management.io/clusterset: gitops-clusters
@@ -29,8 +22,8 @@ metadata:
   namespace: cluster_name
 stringData:
   autoImportRetry: "2"
-  token: token_for_cluster
-  server: https://api-cluster-url.com:6443
+  token: sha256~X-X2Oi7hiaVi4NUFlDL7yvdLrvc7FeGzRkvpgDKCXH8
+  server: https://api.ocp-thunt-1.89dtg.azure.redhatworkshops.io:6443
 type: Opaque
 ---
 apiVersion: agent.open-cluster-management.io/v1
@@ -39,12 +32,12 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "4"
   name: cluster_name
-  namespace: cluster_name
+  namespace: ocp-thunt-1
 spec:
-  clusterName: cluster_name
-  clusterNamespace: cluster_name
+  clusterName: ocp-thunt-1
+  clusterNamespace: ocp-thunt-1
   clusterLabels:
-    name: cluster_name
+    name: ocp-thunt-1
     cloud: auto-detect
     vendor: auto-detect
     cluster.open-cluster-management.io/clusterset: gitops-clusters
